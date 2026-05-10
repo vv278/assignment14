@@ -72,7 +72,7 @@ app.get("/jobs", async (req, res) => {
       }
     );
 
-    const rawJobs = response?.data?.data ?? [];
+    const rawJobs = Array.isArray(response?.data?.data) ? response.data.data : [];
 
     const jobs = rawJobs.map((j) => ({
       id:
