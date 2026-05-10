@@ -54,7 +54,7 @@ app.get("/jobs", async (req, res) => {
     }
 
     const response = await axios.get(
-      `https://${RAPIDAPI_HOST}/search`,
+      `https://${RAPIDAPI_HOST}/search-v2`,
       {
         params: {
           query: builtQuery,
