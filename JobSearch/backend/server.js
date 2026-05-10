@@ -40,6 +40,8 @@ app.get("/jobs", async (req, res) => {
       num_pages = "1",
       country = "us",
       date_posted = "all",
+      employment_type = "all",
+
     } = req.query;
 
     const builtQuery = buildJSearchQuery({
@@ -62,6 +64,7 @@ app.get("/jobs", async (req, res) => {
           num_pages,
           country,
           date_posted,
+          employment_type,
         },
 
         headers: {

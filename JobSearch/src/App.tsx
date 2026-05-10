@@ -21,6 +21,7 @@ export default function JobAssistant() {
   const [location, setLocation] = useState("New Jersey");
   const [country, setCountry] = useState("USA");
   const [datePosted, setDatePosted] = useState("all");
+  const [employmentType, setEmploymentType] = useState("all");
   const [resumeText, setResumeText] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
 
@@ -42,6 +43,7 @@ export default function JobAssistant() {
           location,
           country,
           date_posted: datePosted,
+          employment_type: employmentType,
         },
       });
 
@@ -204,6 +206,21 @@ Implement the API call and replace this placeholder with the generated text.`;
             <option value="3days">Last 3 days</option>
             <option value="week">Last week</option>
             <option value="month">Last month</option>
+          </select>
+        </div>
+
+        <div className="job-assistant__field job-assistant__field--md">
+          <div className="job-assistant__label">Employment Type</div>
+          <select
+            value={employmentType}
+            onChange={(e) => setEmploymentType(e.target.value)}
+            className="job-assistant__control"
+          >
+            <option value="all">All</option>
+            <option value="FULLTIME">Full-time</option>
+            <option value="PARTTIME">Part-time</option>
+            <option value="CONTRACT">Contract</option>
+            <option value="TEMPORARY">Temporary</option>
           </select>
         </div>
 
