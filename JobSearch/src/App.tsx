@@ -36,7 +36,7 @@ export default function JobAssistant() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:5050/jobs", {
+      const response = await axios.get("http://localhost:5001/jobs", {
         params: {
           query,
           location,
@@ -112,7 +112,7 @@ export default function JobAssistant() {
       // - Use `resumeFile` (uploaded file), `resumeText` (parsed text),
       //   current UI inputs, and `job`
       // - Call your backend endpoint
-      //   (e.g. POST http://localhost:5050/cover-letter)
+      //   (e.g. POST http://localhost:5001/cover-letter)
       //   that calls a cover-letter API
       // - Save the generated cover letter into state
       //   so it renders under the card
