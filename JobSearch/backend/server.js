@@ -73,8 +73,9 @@ app.get("/jobs", async (req, res) => {
     );
 
     console.log("API response:", JSON.stringify(response?.data, null, 2));
-    const rawJobs = Array.isArray(response?.data?.data) ? response.data.data : [];
-
+    const rawJobs = Array.isArray(response?.data?.data?.jobs) ? response.data.data.jobs : [];
+    console.log("rawJobs length:", rawJobs.length);
+    console.log("first raw job:", JSON.stringify(rawJobs[0], null, 2));
     const jobs = rawJobs.map((j) => ({
       id:
         j.job_id ??
@@ -114,6 +115,7 @@ app.get("/jobs", async (req, res) => {
         j.job_publisher ?? "",
     }));
 
+    console.log("Sending to frontend:", JSON.stringify({ jobCount: jobs.length, firstJob: jobs[0] }, null, 2));
     res.json({
       query: {
         query: builtQuery,
