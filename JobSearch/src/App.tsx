@@ -46,6 +46,7 @@ export default function JobAssistant() {
       });
 
       const data: Job[] = response.data?.jobs || [];
+      console.log("Jobs received:", data);
       setJobs(data.slice(0, 20));
     } catch (error) {
       console.error("Error fetching jobs:", error);
